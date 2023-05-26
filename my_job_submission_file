@@ -1,0 +1,17 @@
+#!/bin/bash
+#SBATCH --nodes=1
+#SBATCH --gres=gpu:1
+#SBATCH --cpus-per-task=64
+#SBATCH --time=4:00:00
+#SBATCH --job-name TestGPU
+#SBATCH --output TestGPU.out
+#SBATCH --error TestGPU.err
+
+# Run python file.
+
+# Load our conda environment
+module load learning/conda-2020.11-py38-gpu
+source activate res
+
+# Run my code 
+python3 ~/max_Synchronization.py
